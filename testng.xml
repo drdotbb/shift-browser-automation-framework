@@ -3,11 +3,13 @@
 <suite name="Browser Automation Suite" verbose="1">
     <listeners>
         <listener class-name="com.automation.browser.utils.TestListener"/>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
     </listeners>
     
     <test name="Functional Tests">
         <classes>
             <class name="com.automation.browser.tests.ShiftInstallTest"/>
+            <class name="com.automation.browser.tests.ShiftBookmarkTest"/>
         </classes>
     </test>
 </suite>

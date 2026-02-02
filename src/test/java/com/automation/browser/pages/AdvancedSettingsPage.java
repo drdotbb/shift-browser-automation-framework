@@ -3,6 +3,7 @@ package com.automation.browser.pages;
 import io.appium.java_client.windows.WindowsDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -28,7 +29,12 @@ public class AdvancedSettingsPage extends BasePage<AdvancedSettingsPage> {
 
     public AdvancedSettingsPage openQuickSettings() {
         logger.info("Clicking 'Quick Settings'...");
-        click(quickSettingsBtn);
+        try {
+            new Actions(driver).moveToElement(quickSettingsBtn).click().perform();
+        } catch (Exception e) {
+            logger.warn("Actions click failed, fallback to standard click", e);
+            click(quickSettingsBtn);
+        }
         sleep(1000);
         return this;
     }

@@ -55,7 +55,7 @@ public class ShiftBookmarkTest extends CommonFlows {
                   on = new PageGenerator(driver);
              }
         }
-        
+
         // Maximize window for better visibility
         try {
             driver.manage().window().maximize();

@@ -61,6 +61,7 @@ public class ShiftInstallTest extends CommonFlows {
     public void tearDownMethod() {
         System.out.println("Tearing down test...");
         DriverFactory.quitDriver();
-        uninstallShift();
+        driver = null;
+        //uninstallShift(); in case we want to uninstall Shift after the test
     }
 }

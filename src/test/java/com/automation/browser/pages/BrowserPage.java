@@ -26,6 +26,9 @@ public class BrowserPage extends BasePage<BrowserPage> {
     @FindBy(name = "Save")
     private WebElement saveBookmarkButton;
 
+    @FindBy(name = "Bookmarks bar")
+    private WebElement bookmarksBarFolder;
+
     @FindBy(name = "Bookmarks")
     private WebElement bookmarksBar;
 
@@ -138,11 +141,18 @@ public class BrowserPage extends BasePage<BrowserPage> {
         sleep(1000); // Wait for popup
 
         try {
+            // Attempt to select 'Bookmarks bar' folder to ensure visibility
+            if (isElementPresent(bookmarksBarFolder)) {
+                 logger.info("Selecting 'Bookmarks bar' folder...");
+                 click(bookmarksBarFolder);
+                 sleep(500);
+            }
+            
             waitForVisibility(saveBookmarkButton);
             click(saveBookmarkButton);
             logger.info("Clicked 'Save' button.");
         } catch (Exception e) {
-            logger.warn("'Save' button not found or not visible. It might be already saved or popup dismissed.");
+            logger.warn("Error interacting with bookmark popup: " + e.getMessage());
         }
         return this;
     }

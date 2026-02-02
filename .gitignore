@@ -5,5 +5,7 @@ target/
 .classpath
 .project
 allure-results/
+.allure/
+screenshots/
 .DS_Store
 *.log

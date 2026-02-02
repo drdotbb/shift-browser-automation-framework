@@ -87,7 +87,17 @@ public class SetupPage extends BasePage<SetupPage> {
         logger.info("Clicking Next after skip...");
         sleep(1000);
         wait.until(ExpectedConditions.elementToBeClickable(nextAfterSkipButton));
-        click(nextAfterSkipButton);
+        
+        // Ensure we click the center of the element to avoid hovering on the edge
+        // The user reported the mouse hovers right above the button, likely due to coordinate offset.
+        // We use Actions to move to the element which defaults to center.
+        try {
+            Actions actions = new Actions(driver);
+            actions.moveToElement(nextAfterSkipButton).click().perform();
+        } catch (Exception e) {
+            logger.warn("Actions click failed, falling back to standard click", e);
+            click(nextAfterSkipButton);
+        }
         return this;
     }
 
