@@ -2,10 +2,6 @@
 
 This project contains an automated test suite for the Shift Browser using WinAppDriver, Selenium, and TestNG.
 
-## Compatibility Note
-
-This project utilizes **Appium Java Client 7.6.0** and **Selenium 3.141.59**. This version selection is intentional to ensure native compatibility with **WinAppDriver 1.2.1**, which relies on the legacy JSON Wire Protocol. Newer versions of Appium (8.x/9.x) enforce the W3C WebDriver Protocol, which WinAppDriver does not fully support natively without an external Appium Server acting as a proxy.
-
 ## Prerequisites
 
 1.  **Java JDK 11** or higher.
@@ -30,6 +26,10 @@ This project utilizes **Appium Java Client 7.6.0** and **Selenium 3.141.59**. Th
     *   Clone the repository.
     *   Open the project directory in a terminal.
     *   Run `mvn clean install -DskipTests` to download dependencies.
+
+## Compatibility Note
+
+This project utilizes **Appium Java Client 7.6.0** and **Selenium 3.141.59**. This version selection is intentional to ensure native compatibility with **WinAppDriver 1.2.1**, which relies on the legacy JSON Wire Protocol. Newer versions of Appium (8.x/9.x) enforce the W3C WebDriver Protocol, which WinAppDriver does not fully support natively.
 
 ## Running Tests
 
