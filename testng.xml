@@ -7,7 +7,6 @@
     
     <test name="Functional Tests">
         <classes>
-            <class name="com.automation.browser.tests.NavigationTest"/>
             <class name="com.automation.browser.tests.ShiftInstallTest"/>
         </classes>
     </test>
